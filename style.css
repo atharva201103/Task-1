@@ -1,0 +1,45 @@
+*
+{
+    margin: 0%;
+    padding: 0%;
+}
+#Heading
+{
+   margin-left:  43%;
+   margin-top: 10px;
+}
+.box
+{
+   
+    width: 800px;
+    margin-top: 100px;
+    display: flex;
+    gap: 10px;
+    margin-left: 30px;
+
+}
+#year
+{
+    height: 15px;
+    width: 100px;
+}
+
+#btn1
+{
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.mid-section
+{
+
+    width: 800px;
+    background-color: aqua;
+    height: 80px;
+}
+
+#result
+{
+    margin-top: 5px;
+    margin-left: 28px;
+}

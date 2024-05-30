@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css" >
+
+</head>
+<body>
+    <div>
+        <h1 id="Heading">Age Calculator</h1>
+    </div>
+ <div class="mid-section">  
+<div class="box">
+    <h3>Date of Birth</h3>
+    <div>
+     <select class="months" id="months">
+        <option value="0">January</option>
+        <option value="1">Febuary</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+     </select>
+    </div>
+    <div>
+        <select class="Dates" id="dates">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">3</option>
+            <option value="5">4</option>
+            <option value="6">5</option>
+            <option value="7">6</option>
+            <option value="8">7</option>
+            <option value="9">8</option>
+            <option value="10">9</option>
+            <option value="11">10</option>
+            <option value="12">11</option>
+            <option value="13">12</option>
+            <option value="14">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+        </select>
+    </div class="year">
+    <input type="text" id="year" name="year" placeholder="Enter birth year">
+</div class="btn">
+    <button id="btn1">Calculate Age</button>
+<div >
+    <div>
+        <p id="result"></p>
+    </div>
+</div>
+    </div>
+    <script>
+        document.getElementById('btn1').addEventListener('click', function() {
+            const month = document.getElementById('months').value;
+            const date = document.getElementById('dates').value;
+            const year = document.getElementById('year').value;
+
+            if (!year || isNaN(year) || year < 0) {
+                document.getElementById('result').innerText = "Please enter a valid year.";
+                return;
+            }
+
+            const birthDate = new Date(year, month, date);
+            const today = new Date();
+
+            let ageYears = today.getFullYear() - birthDate.getFullYear();
+            let ageMonths = today.getMonth() - birthDate.getMonth();
+            let ageDays = today.getDate() - birthDate.getDate();
+
+            if (ageDays < 0) {
+                ageMonths--;
+                let previousMonth = today.getMonth() - 1;
+                if (previousMonth < 0) {
+                    previousMonth = 11;
+                }
+                ageDays += new Date(today.getFullYear(), previousMonth + 1, 0).getDate();
+            }
+
+            if (ageMonths < 0) {
+                ageYears--;
+                ageMonths += 12;
+            }
+
+            document.getElementById('result').innerText = `You are ${ageYears} years, ${ageMonths} months, and ${ageDays} days old.`;
+        });
+    </script>
+</body>
+</html>
